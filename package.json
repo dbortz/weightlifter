@@ -1,0 +1,24 @@
+{
+  "name": "weightlifter",
+  "private": true,
+  "dependencies": {
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "description": "",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbortz/recipe-weights-rails.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dbortz/recipe-weights-rails/issues"
+  },
+  "homepage": "https://github.com/dbortz/recipe-weights-rails#readme"
+}

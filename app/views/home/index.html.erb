@@ -1,0 +1,35 @@
+<div class="container mx-auto px-4 py-8">
+  <div class="flex flex-col items-center justify-center space-y-8">
+    <h1 class="text-4xl font-bold tracking-tight">Welcome to Weightlifter</h1>
+    <p class="text-lg text-muted-foreground text-center max-w-2xl">
+      A modern Rails application with Tailwind CSS and ShadCN UI components, ready to deploy on Render.
+    </p>
+    
+    <%= render Ui::CardComponent.new(class_name: "w-full max-w-md") do %>
+      <%= render Ui::Card::HeaderComponent.new do %>
+        <%= render Ui::Card::TitleComponent.new do %>
+          Getting Started
+        <% end %>
+        <%= render Ui::Card::DescriptionComponent.new do %>
+          Start building your weightlifting tracker app
+        <% end %>
+      <% end %>
+      
+      <%= render Ui::Card::ContentComponent.new do %>
+        <p class="mb-4">This application is set up with:</p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>Rails 7 with PostgreSQL</li>
+          <li>Tailwind CSS for styling</li>
+          <li>ShadCN-inspired UI components</li>
+          <li>Ready for Render deployment</li>
+        </ul>
+      <% end %>
+      
+      <%= render Ui::Card::FooterComponent.new do %>
+        <%= render Ui::ButtonComponent.new do %>
+          Get Started
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div> 
