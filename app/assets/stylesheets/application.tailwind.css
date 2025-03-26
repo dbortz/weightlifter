@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  input[type="number"],
+  input[type="tel"] {
+    @apply border-[1px] border-solid border-gray-300;
+  }
+
+  input[type="submit"],
+  button[type="submit"],
+  .button-primary {
+    @apply bg-indigo-600 text-white hover:bg-indigo-700 rounded-md border border-transparent py-2 px-4 text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+  }
+}
