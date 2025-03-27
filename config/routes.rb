@@ -7,6 +7,20 @@ Rails.application.routes.draw do
   get 'setup' => 'setup#new', as: :setup
   post 'setup' => 'setup#create'
   
+  # Main sections
+  resources :recipes, only: [:index]
+  get 'settings' => 'settings#index', as: :settings
+  get 'admin' => 'admin#index', as: :admin
+
+  # Admin namespace
+  namespace :admin do
+    resources :users, only: [:create, :destroy] do
+      collection do
+        post :bulk_delete
+      end
+    end
+  end
+  
   root "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

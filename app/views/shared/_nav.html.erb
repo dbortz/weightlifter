@@ -3,17 +3,37 @@
     <div class="flex justify-between h-16">
       <div class="flex">
         <div class="flex-shrink-0 flex items-center">
-          <%= link_to "Weightlifter", root_path, class: "text-xl font-bold" %>
+          <%= link_to "Weightlifter", root_path, class: "text-xl font-bold text-gray-900" %>
         </div>
+
+        <% if user_signed_in? %>
+          <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+            <%= link_to "Recipes", recipes_path, 
+                class: "#{current_page?(recipes_path) ? 'border-indigo-500 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'} inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" %>
+            
+            <%= link_to "Settings", settings_path,
+                class: "#{current_page?(settings_path) ? 'border-indigo-500 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'} inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" %>
+            
+            <% if current_user.admin? %>
+              <%= link_to "Admin", admin_path,
+                  class: "#{current_page?(admin_path) ? 'border-indigo-500 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'} inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" %>
+            <% end %>
+          </div>
+        <% end %>
       </div>
       
       <div class="flex items-center">
         <% if user_signed_in? %>
-          <span class="mr-4">Welcome, <%= current_user.email %></span>
-          <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
+          <span class="mr-4 text-sm text-gray-500">
+            <%= current_user.email %>
+            <% if current_user.admin? %>
+              <span class="ml-2 inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-600/20">Admin</span>
+            <% end %>
+          </span>
+          <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "bg-white hover:bg-gray-50 text-gray-600 font-medium py-2 px-4 rounded-md border border-gray-300 hover:text-gray-900" %>
         <% else %>
-          <%= link_to "Sign in", new_user_session_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4" %>
-          <%= link_to "Sign up", new_user_registration_path, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" %>
+          <%= link_to "Sign in", new_user_session_path, class: "bg-white hover:bg-gray-50 text-gray-600 font-medium py-2 px-4 rounded-md border border-gray-300 hover:text-gray-900 mr-4" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md" %>
         <% end %>
       </div>
     </div>

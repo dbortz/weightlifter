@@ -1,0 +1,27 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="bg-white shadow rounded-lg p-6">
+    <h1 class="text-3xl font-bold text-gray-900 mb-4">User Settings</h1>
+    
+    <div class="space-y-6">
+      <div class="border-b border-gray-200 pb-6">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">Account Information</h2>
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Email</label>
+            <p class="mt-1 text-sm text-gray-900"><%= current_user.email %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-b border-gray-200 pb-6">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">Preferences</h2>
+        <p class="text-sm text-gray-500">Measurement preferences and display options coming soon.</p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">Account Management</h2>
+        <%= button_to "Change Password", edit_user_registration_path, method: :get, class: "bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200" %>
+      </div>
+    </div>
+  </div>
+</div> 
